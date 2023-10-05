@@ -1,4 +1,6 @@
 #!/bin/bash
+#Para ajustar a time zone de Virgina para a time zone de Fortaleza
+export TZ=America/Fortaleza
 #verifica se o serviço HTTP naquele tempo estava online
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
 service_name="HTTPD"

@@ -72,6 +72,8 @@ Nesta etapa da atividade foi preciso cirar um script que verifica se o serviço 
 
 ```bash
 #!/bin/bash
+#Para ajustar a time zone de Virgina para a time zone de Fortaleza
+export TZ=America/Fortaleza
 #verifica se o serviço HTTP naquele tempo estava online
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
 service_name="HTTPD"
@@ -85,7 +87,8 @@ if ! systemctl is-active --quiet httpd; then
 fi
 # retorna em o arquivo .txt o tempo pego, o nome do serviço no caso HTTP
 #O status ONLINE ou OFFLINE e a message
-echo "$timestamp $service_name $status $message" /eliton/statusservice.txt
+echo "$timestamp $service_name $status $message" /eliton/verify.txt
+
 ```
 ## Cron job
 Antes de cirar o cron job é necessario dar permição de execução para o arquivo `.sh`.
